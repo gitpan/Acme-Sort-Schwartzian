@@ -19,12 +19,13 @@ module_name: Acme::Sort::Schwartzian
 name: Acme-Sort-Schwartzian
 no_index:
   directory:
+    - examples
     - inc
     - t
     - xt
 requires:
-  Eval::TypeTiny: 0.018
-  Exporter::TypeTiny: 0.018
+  Eval::TypeTiny: 0.019
+  Exporter::TypeTiny: 0.019
   PadWalker: 1.96
   Parse::Keyword: 0.01
   perl: 5.14.0
@@ -33,4 +34,4 @@ resources:
   homepage: https://metacpan.org/release/Acme-Sort-Schwartzian
   license: http://dev.perl.org/licenses/
   repository: https://github.com/tobyink/p5-acme-sort-schwartzian
-version: 0.001
+version: 0.002

@@ -6,6 +6,12 @@ Home page:    <https://metacpan.org/release/Acme-Sort-Schwartzian>
 Bug tracker:  <http://rt.cpan.org/Dist/Display.html?Queue=Acme-Sort-Schwartzian>
 Maintainer:   Toby Inkster <mailto:tobyink@cpan.org>
 
+0.002  2013-07-23
+
+ - (Addition) Include example script.
+ - (Update) Depend on newer version of Eval::TypeTiny which does closures
+   better.
+
 0.001  2013-07-23  # Initial release
 
 

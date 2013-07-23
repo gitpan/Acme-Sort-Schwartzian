@@ -26,8 +26,8 @@ dist:project
 		nfo:fileName "lib/Acme/Sort/Schwartzian.pm";
 		nfo:programmingLanguage "Perl";
 	];
-	cpant:requires    "Eval::TypeTiny 0.018"^^cpant:dsWithVersion;
-	cpant:requires    "Exporter::TypeTiny 0.018"^^cpant:dsWithVersion;
+	cpant:requires    "Eval::TypeTiny 0.019"^^cpant:dsWithVersion;
+	cpant:requires    "Exporter::TypeTiny 0.019"^^cpant:dsWithVersion;
 	cpant:requires    "PadWalker 1.96"^^cpant:dsWithVersion;
 	cpant:requires    "Parse::Keyword 0.01"^^cpant:dsWithVersion;
 	cpant:test_requires "Test::More 0.96"^^cpant:dsWithVersion;
@@ -48,6 +48,7 @@ dist:project
 	doap:maintainer   cpan:tobyink;
 	doap:programming-language "Perl";
 	doap:release      dist:v_0-001;
+	doap:release      dist:v_0-002;
 	doap:repository   [
 		a doap:GitRepository;
 		doap:browse <https://github.com/tobyink/p5-acme-sort-schwartzian>;
@@ -62,6 +63,24 @@ dist:v_0-001
 	dcs:released-by   cpan:tobyink;
 	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Acme-Sort-Schwartzian-0.001.tar.gz>;
 	doap:revision     "0.001"^^xsd:string.
+
+dist:v_0-002
+	a                 doap:Version;
+	dc:identifier     "Acme-Sort-Schwartzian-0.002"^^xsd:string;
+	dc:issued         "2013-07-23"^^xsd:date;
+	dcs:changeset     [
+		dcs:item [
+			a dcs:Update;
+			rdfs:label "Depend on newer version of Eval::TypeTiny which does closures better.";
+		];
+		dcs:item [
+			a dcs:Addition;
+			rdfs:label "Include example script.";
+		];
+	];
+	dcs:released-by   cpan:tobyink;
+	doap:file-release <http://backpan.cpan.org/authors/id/T/TO/TOBYINK/Acme-Sort-Schwartzian-0.002.tar.gz>;
+	doap:revision     "0.002"^^xsd:string.
 
 cpan:tobyink
 	a                 foaf:Person;

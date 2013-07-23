@@ -4,7 +4,7 @@ use v5.14;
 
 BEGIN {
 	$Acme::Sort::Schwartzian::AUTHORITY = 'cpan:TOBYINK';
-	$Acme::Sort::Schwartzian::VERSION   = '0.001';
+	$Acme::Sort::Schwartzian::VERSION   = '0.002';
 }
 
 use B::Deparse ();
@@ -59,10 +59,9 @@ sub _compile_sort_schwartz {
 		source      => qq{
 			sub {
 				return
-					map  { \$_->[0] }
+					map  \$_->[0],
 					sort { $sorter{$op} }
-					map  { [ \$_, do $transform ] }
-						\@_;
+					map  [ \$_, do $transform ], \@_;
 			}
 		},
 	);
@@ -142,12 +141,13 @@ The list is the list of items to be sorted.
 
 =head1 LIMITATIONS
 
-Currently closing over a variable in the key block doesn't work properly.
-You get a copy of the original data, and any modifications to it are not
-visible outside the key block.
+=over
 
-If that variable is a scalarref/arrayref/hashref, then you can safely
-mutate the structures pointed to by the reference.
+=item *
+
+This module's acronym is ASS.
+
+=back
 
 =head1 BUGS
 
