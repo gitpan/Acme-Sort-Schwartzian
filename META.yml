@@ -1,0 +1,36 @@
+---
+abstract: 'a keyword that provides sort via a Schwartzian transform'
+author:
+  - 'Toby Inkster <tobyink@cpan.org>'
+build_requires:
+  ExtUtils::MakeMaker: 6.59
+  Test::More: 0.96
+configure_requires:
+  ExtUtils::MakeMaker: 6.59
+distribution_type: module
+dynamic_config: 0
+generated_by: 'Module::Install version 1.06'
+keywords: []
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+module_name: Acme::Sort::Schwartzian
+name: Acme-Sort-Schwartzian
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  Eval::TypeTiny: 0.018
+  Exporter::TypeTiny: 0.018
+  PadWalker: 1.96
+  Parse::Keyword: 0.01
+  perl: 5.14.0
+resources:
+  bugtracker: http://rt.cpan.org/Dist/Display.html?Queue=Acme-Sort-Schwartzian
+  homepage: https://metacpan.org/release/Acme-Sort-Schwartzian
+  license: http://dev.perl.org/licenses/
+  repository: https://github.com/tobyink/p5-acme-sort-schwartzian
+version: 0.001

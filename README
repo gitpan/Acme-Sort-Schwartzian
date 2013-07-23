@@ -1,0 +1,76 @@
+NAME
+    Acme::Sort::Schwartzian - a keyword that provides sort via a Schwartzian
+    transform
+
+SYNOPSIS
+       use Acme::Sort::Schwarz sort_schwartz => { -as => 'ssort' };
+   
+       my @sorted = ssort { length($_) } <=> qw(foobar baz quux xyzzy);
+   
+       print "$_\n" for @sorted;
+   
+       __END__
+       baz
+       quux
+       xyzzy
+       foobar
+
+DESCRIPTION
+    This module is mostly just for me to play with Parse::Keyword. In
+    particular, it's a study of deparsing a coderef captured by
+    Parse::Keyword and recompiling that into a block of a larger function
+    (along with any closed over variables). This is a technique that might
+    be useful in the future for something like Sub::Quote.
+
+    It provides the keyword "sort_schwartz", but because that's annoying to
+    type out, you can rename it something else (as shown in the SYNOPSIS).
+
+    It implements the Schwartzian transform - i.e. something like this:
+
+       my @sorted =
+          map  { $_->[0] }
+          sort { $a->[1] cmp $b->[1] }
+          map  { [ $_ => func($_) ] }
+             @unsorted;
+
+  Keyword
+    "sort_schwartz { KEY_BLOCK } OPERATOR? LIST"
+        The key block is a block of Perl code that when given a value (in
+        $_) generates a key to sort by. In other words, it's the "func()" in
+        the bottom "map" of the standard Schwatzian transform.
+
+        The operator is one of "cmp" (lexicographic), "-cmp" (reverse
+        lexicographic), "<=>" (numeric) or "-<=>" (reverse numeric). If
+        omitted, defaults to "cmp".
+
+        The list is the list of items to be sorted.
+
+LIMITATIONS
+    Currently closing over a variable in the key block doesn't work
+    properly. You get a copy of the original data, and any modifications to
+    it are not visible outside the key block.
+
+    If that variable is a scalarref/arrayref/hashref, then you can safely
+    mutate the structures pointed to by the reference.
+
+BUGS
+    Please report any bugs to
+    <http://rt.cpan.org/Dist/Display.html?Queue=Acme-Sort-Schwartzian>.
+
+SEE ALSO
+    Sort::Key.
+
+AUTHOR
+    Toby Inkster <tobyink@cpan.org>.
+
+COPYRIGHT AND LICENCE
+    This software is copyright (c) 2013 by Toby Inkster.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
+DISCLAIMER OF WARRANTIES
+    THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+    WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+    MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+
